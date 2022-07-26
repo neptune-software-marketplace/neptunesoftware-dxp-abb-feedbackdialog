@@ -1,0 +1,1500 @@
+{
+	"id": "030f51c4-4b91-46e3-802a-3e20261a703a",
+	"createdAt": "2022-02-04T15:47:56.680Z",
+	"updatedAt": "2022-07-26T10:45:37.323Z",
+	"createdBy": "luuk.wosten@neptune-software.com",
+	"changedBy": "kristin.eliassen@neptune-software.com",
+	"objects": [
+		{
+			"fieldNo": "0d76afcc-ea62-4d7c-936f-345ee058df68",
+			"fieldName": "oJavascript",
+			"fieldParent": 0,
+			"fieldType": "neptune.Script",
+			"script": [
+				"==OBJECT STRING==",
+				"// Custom Init - Happens only once",
+				"sap.ui.getCore().attachInit(function(data) {",
+				"",
+				"    // data = startParameters from NAM Action settings on the tile",
+				"    // Do your Stuff",
+				"",
+				"    // Some stuff needs to be timed later. Run them inside a timeout",
+				"    setTimeout(function() {",
+				"      oDiaFeedback.open();",
+				"    }, 200);",
+				"",
+				"});"
+			],
+			"request": [],
+			"response": [],
+			"attributes": [],
+			"data": []
+		},
+		{
+			"fieldNo": "aa841d94-6528-4049-c0a6-be59687d1fc0",
+			"fieldName": "oOverflowToolbar",
+			"fieldParent": 0,
+			"fieldType": "sap.m.OverflowToolbar",
+			"script": "",
+			"request": [],
+			"response": [],
+			"attributes": [
+				{
+					"attribute": "position",
+					"grouping": "Parent",
+					"value": "HeaderToolbar",
+					"script": "",
+					"translation": []
+				}
+			],
+			"data": [
+				{
+					"fieldNo": "77cdfdd0-ba3c-4eed-fea1-756ae9e04f4b",
+					"fieldName": "btnFeedback",
+					"fieldParent": "aa841d94-6528-4049-c0a6-be59687d1fc0",
+					"fieldType": "sap.m.Button",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "text",
+							"grouping": "Properties",
+							"value": "Give Feedback",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "styleClassMargin",
+							"grouping": "Properties",
+							"value": "sapUiMediumMargin",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "icon",
+							"grouping": "Properties",
+							"value": "sap-icon://feedback",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "press",
+							"grouping": "Events",
+							"value": "Anonymous Function",
+							"script": [
+								"==OBJECT STRING==",
+								"sap.ui.getCore().byId(\"oMessageStrip\").setText(\"Your feedback is anonymous, we do not collect any personal data.\");",
+								"sap.ui.getCore().byId(\"oFormattedText\").setHtmlText(\"Note: If you want to report a bug, open an incident. This way we will be able to get back to you if we have follow-up questions.\");",
+								"",
+								"sap.ui.getCore().byId(\"toggleBtnVGood\").setPressed(false);",
+								"sap.ui.getCore().byId(\"toggleBtnGood\").setPressed(false);",
+								"sap.ui.getCore().byId(\"toggleBtnNeutral\").setPressed(false);",
+								"sap.ui.getCore().byId(\"toggleBtnBad\").setPressed(false);",
+								"sap.ui.getCore().byId(\"toggleBtnVBad\").setPressed(false);",
+								"",
+								"sap.ui.getCore().byId(\"ratingLabel0\").setDesign(\"Standard\");",
+								"sap.ui.getCore().byId(\"ratingLabel1\").setDesign(\"Standard\");",
+								"sap.ui.getCore().byId(\"ratingLabel2\").setDesign(\"Standard\");",
+								"sap.ui.getCore().byId(\"ratingLabel3\").setDesign(\"Standard\");",
+								"sap.ui.getCore().byId(\"ratingLabel4\").setDesign(\"Standard\");",
+								"oDiaFeedback.open();"
+							],
+							"translation": []
+						}
+					],
+					"data": []
+				}
+			]
+		},
+		{
+			"fieldNo": "bf1e2ab2-7b93-4311-ae63-477eb7c8450e",
+			"fieldName": "oDiaFeedback",
+			"fieldParent": 0,
+			"fieldType": "sap.m.Dialog",
+			"script": "",
+			"request": [],
+			"response": [],
+			"attributes": [
+				{
+					"attribute": "title",
+					"grouping": "Properties",
+					"value": "Give Feedback",
+					"script": "",
+					"translation": []
+				},
+				{
+					"attribute": "styleClassPadding",
+					"grouping": "Properties",
+					"value": "sapUiContentPadding",
+					"script": "",
+					"translation": []
+				},
+				{
+					"attribute": "resizable",
+					"grouping": "Properties",
+					"value": "true",
+					"script": "",
+					"translation": []
+				},
+				{
+					"attribute": "icon",
+					"grouping": "Properties",
+					"value": "sap-icon://feed",
+					"script": "",
+					"translation": []
+				},
+				{
+					"attribute": "enableCompactMode",
+					"grouping": "Properties",
+					"value": "true",
+					"script": "",
+					"translation": []
+				},
+				{
+					"attribute": "draggable",
+					"grouping": "Properties",
+					"value": "true",
+					"script": "",
+					"translation": []
+				},
+				{
+					"attribute": "contentWidth",
+					"grouping": "Properties",
+					"value": "515px",
+					"script": "",
+					"translation": []
+				},
+				{
+					"attribute": "contentHeight",
+					"grouping": "Properties",
+					"value": "590px",
+					"script": "",
+					"translation": []
+				}
+			],
+			"data": [
+				{
+					"fieldNo": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+					"fieldName": "oVerticalLayout",
+					"fieldParent": "bf1e2ab2-7b93-4311-ae63-477eb7c8450e",
+					"fieldType": "sap.ui.layout.VerticalLayout",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "width",
+							"grouping": "Properties",
+							"value": "100%",
+							"script": "",
+							"translation": []
+						}
+					],
+					"data": [
+						{
+							"fieldNo": "59f2f6f2-1c04-4739-f975-ff6d4b029349",
+							"fieldName": "oHBoxVote",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.HBox",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "renderType",
+									"grouping": "Properties",
+									"value": "Div",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "justifyContent",
+									"grouping": "Properties",
+									"value": "SpaceBetween",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "direction",
+									"grouping": "Properties",
+									"value": "Row",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "alignItems",
+									"grouping": "Properties",
+									"value": "Stretch",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "f53576ec-6045-471e-8544-5760468ec4a5",
+									"fieldName": "voteLabel",
+									"fieldParent": "59f2f6f2-1c04-4739-f975-ff6d4b029349",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "textDirection",
+											"grouping": "Properties",
+											"value": "Inherit",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textAlign",
+											"grouping": "Properties",
+											"value": "Begin",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Rate your experience:",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "required",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "design",
+											"grouping": "Properties",
+											"value": "Bold",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "displayOnly",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								}
+							]
+						},
+						{
+							"fieldNo": "8b2f3d50-a5a7-4c68-99c1-30e0786eaea4",
+							"fieldName": "oHBoxRatingBtn",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.HBox",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "width",
+									"grouping": "Properties",
+									"value": "100%",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "styleClassMargin",
+									"grouping": "Properties",
+									"value": "sapUiNoMargin",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "renderType",
+									"grouping": "Properties",
+									"value": "Bare",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "justifyContent",
+									"grouping": "Properties",
+									"value": "SpaceAround",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "fitContainer",
+									"grouping": "Properties",
+									"value": "true",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "direction",
+									"grouping": "Properties",
+									"value": "Row",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "alignItems",
+									"grouping": "Properties",
+									"value": "Start",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "alignContent",
+									"grouping": "Properties",
+									"value": "Start",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "2afeef7f-0254-4ef1-c6e5-56a7a5073c16",
+									"fieldName": "toggleBtnVGood",
+									"fieldParent": "8b2f3d50-a5a7-4c68-99c1-30e0786eaea4",
+									"fieldType": "sap.m.ToggleButton",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "180%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "type",
+											"grouping": "Properties",
+											"value": "Unstyled",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "icon",
+											"grouping": "Properties",
+											"value": "sap-icon://fa-regular/grin-alt",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "press",
+											"grouping": "Events",
+											"value": "Anonymous Function",
+											"script": [
+												"==OBJECT STRING==",
+												"if (sap.ui.getCore().byId(\"toggleBtnVGood\").getPressed() === true) {",
+												"    ",
+												"    sap.ui.getCore().byId(\"ratingLabel0\").setDesign(\"Bold\");",
+												"    sap.ui.getCore().byId(\"ratingLabel1\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel2\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel3\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel4\").setDesign(\"Standard\");",
+												"    ",
+												"    sap.ui.getCore().byId(\"toggleBtnGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnNeutral\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnBad\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnVBad\").setPressed(false);",
+												"} else {",
+												"    sap.ui.getCore().byId(\"ratingLabel0\").setDesign(\"Standard\");",
+												"}"
+											],
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "9cb91db4-1d1d-48de-c807-7df6c71af548",
+									"fieldName": "toggleBtnGood",
+									"fieldParent": "8b2f3d50-a5a7-4c68-99c1-30e0786eaea4",
+									"fieldType": "sap.m.ToggleButton",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "180%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "type",
+											"grouping": "Properties",
+											"value": "Unstyled",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "icon",
+											"grouping": "Properties",
+											"value": "sap-icon://fa-regular/smile",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "press",
+											"grouping": "Events",
+											"value": "Anonymous Function",
+											"script": [
+												"==OBJECT STRING==",
+												"if (sap.ui.getCore().byId(\"toggleBtnGood\").getPressed() === true) {",
+												"",
+												"    sap.ui.getCore().byId(\"ratingLabel1\").setDesign(\"Bold\");",
+												"    sap.ui.getCore().byId(\"ratingLabel0\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel2\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel3\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel4\").setDesign(\"Standard\");",
+												"",
+												"    sap.ui.getCore().byId(\"toggleBtnVGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnNeutral\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnBad\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnVBad\").setPressed(false);",
+												"} else {",
+												"    sap.ui.getCore().byId(\"ratingLabel1\").setDesign(\"Standard\");",
+												"}"
+											],
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "f4c9c060-29fb-4ad2-b0d3-6e290fe43852",
+									"fieldName": "toggleBtnNeutral",
+									"fieldParent": "8b2f3d50-a5a7-4c68-99c1-30e0786eaea4",
+									"fieldType": "sap.m.ToggleButton",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "180%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "type",
+											"grouping": "Properties",
+											"value": "Unstyled",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "icon",
+											"grouping": "Properties",
+											"value": "sap-icon://fa-regular/meh-blank",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "press",
+											"grouping": "Events",
+											"value": "Anonymous Function",
+											"script": [
+												"==OBJECT STRING==",
+												"if (sap.ui.getCore().byId(\"toggleBtnNeutral\").getPressed() === true) {",
+												"",
+												"    sap.ui.getCore().byId(\"ratingLabel2\").setDesign(\"Bold\");",
+												"    sap.ui.getCore().byId(\"ratingLabel1\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel0\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel3\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel4\").setDesign(\"Standard\");",
+												"",
+												"    sap.ui.getCore().byId(\"toggleBtnVGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnBad\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnVBad\").setPressed(false);",
+												"} else {",
+												"    sap.ui.getCore().byId(\"ratingLabel2\").setDesign(\"Standard\");",
+												"}"
+											],
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "745bcb74-313e-498a-bc9c-8d09e4051224",
+									"fieldName": "toggleBtnBad",
+									"fieldParent": "8b2f3d50-a5a7-4c68-99c1-30e0786eaea4",
+									"fieldType": "sap.m.ToggleButton",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "180%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "type",
+											"grouping": "Properties",
+											"value": "Unstyled",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "icon",
+											"grouping": "Properties",
+											"value": "sap-icon://fa-regular/frown",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "press",
+											"grouping": "Events",
+											"value": "Anonymous Function",
+											"script": [
+												"==OBJECT STRING==",
+												"if (sap.ui.getCore().byId(\"toggleBtnBad\").getPressed() === true) {",
+												"",
+												"    sap.ui.getCore().byId(\"ratingLabel3\").setDesign(\"Bold\");",
+												"    sap.ui.getCore().byId(\"ratingLabel1\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel2\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel0\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel4\").setDesign(\"Standard\");",
+												"",
+												"    sap.ui.getCore().byId(\"toggleBtnVGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnNeutral\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnVBad\").setPressed(false);",
+												"} else {",
+												"    sap.ui.getCore().byId(\"ratingLabel3\").setDesign(\"Standard\");",
+												"}"
+											],
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "bd7ebbb9-54c8-49d0-96d7-e64dce977b2a",
+									"fieldName": "toggleBtnVBad",
+									"fieldParent": "8b2f3d50-a5a7-4c68-99c1-30e0786eaea4",
+									"fieldType": "sap.m.ToggleButton",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "180%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "type",
+											"grouping": "Properties",
+											"value": "Unstyled",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "                                ",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "icon",
+											"grouping": "Properties",
+											"value": "sap-icon://fa-regular/sad-tear",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "press",
+											"grouping": "Events",
+											"value": "Anonymous Function",
+											"script": [
+												"==OBJECT STRING==",
+												"if (sap.ui.getCore().byId(\"toggleBtnVBad\").getPressed() === true) {",
+												"",
+												"    sap.ui.getCore().byId(\"ratingLabel4\").setDesign(\"Bold\");",
+												"    sap.ui.getCore().byId(\"ratingLabel1\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel2\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel3\").setDesign(\"Standard\");",
+												"    sap.ui.getCore().byId(\"ratingLabel0\").setDesign(\"Standard\");",
+												"",
+												"    sap.ui.getCore().byId(\"toggleBtnVGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnGood\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnNeutral\").setPressed(false);",
+												"    sap.ui.getCore().byId(\"toggleBtnBad\").setPressed(false);",
+												"} else {",
+												"    sap.ui.getCore().byId(\"ratingLabel4\").setDesign(\"Standard\");",
+												"}"
+											],
+											"translation": []
+										}
+									],
+									"data": []
+								}
+							]
+						},
+						{
+							"fieldNo": "293b6a29-a6c5-46d5-e6d8-d08975ea6779",
+							"fieldName": "oHBoxRatingTxt",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.HBox",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "width",
+									"grouping": "Properties",
+									"value": "100%",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "styleClassMargin",
+									"grouping": "Properties",
+									"value": "sapUiSmallMarginTopBottom",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "renderType",
+									"grouping": "Properties",
+									"value": "Bare",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "justifyContent",
+									"grouping": "Properties",
+									"value": "SpaceAround",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "fitContainer",
+									"grouping": "Properties",
+									"value": "true",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "direction",
+									"grouping": "Properties",
+									"value": "Row",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "alignItems",
+									"grouping": "Properties",
+									"value": "Stretch",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "alignContent",
+									"grouping": "Properties",
+									"value": "Center",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "b52a6c95-1560-4af0-957f-ae3e72114a8b",
+									"fieldName": "ratingLabel0",
+									"fieldParent": "293b6a29-a6c5-46d5-e6d8-d08975ea6779",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "100%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textDirection",
+											"grouping": "Properties",
+											"value": "Inherit",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textAlign",
+											"grouping": "Properties",
+											"value": "Center",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Very Good",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "design",
+											"grouping": "Properties",
+											"value": "Standard",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "displayOnly",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "wrapping",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "08721cf2-0e4b-4c62-e877-8ad96ed0cb0b",
+									"fieldName": "ratingLabel1",
+									"fieldParent": "293b6a29-a6c5-46d5-e6d8-d08975ea6779",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "100%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textDirection",
+											"grouping": "Properties",
+											"value": "Inherit",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textAlign",
+											"grouping": "Properties",
+											"value": "Center",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Good",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "design",
+											"grouping": "Properties",
+											"value": "Standard",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "displayOnly",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "wrapping",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "2939174d-609f-49ef-8e3a-fd66088b249e",
+									"fieldName": "ratingLabel2",
+									"fieldParent": "293b6a29-a6c5-46d5-e6d8-d08975ea6779",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "100%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textDirection",
+											"grouping": "Properties",
+											"value": "Inherit",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textAlign",
+											"grouping": "Properties",
+											"value": "Center",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Neutral",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "design",
+											"grouping": "Properties",
+											"value": "Standard",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "displayOnly",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "wrapping",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "8209e189-6c96-465a-fcab-000700378b05",
+									"fieldName": "ratingLabel3",
+									"fieldParent": "293b6a29-a6c5-46d5-e6d8-d08975ea6779",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "100%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textDirection",
+											"grouping": "Properties",
+											"value": "Inherit",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textAlign",
+											"grouping": "Properties",
+											"value": "Center",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Poor",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "design",
+											"grouping": "Properties",
+											"value": "Standard",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "displayOnly",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "wrapping",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								},
+								{
+									"fieldNo": "87e35b9c-9cc6-4e1a-8223-b9ab07bcb9c1",
+									"fieldName": "ratingLabel4",
+									"fieldParent": "293b6a29-a6c5-46d5-e6d8-d08975ea6779",
+									"fieldType": "sap.m.Label",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "width",
+											"grouping": "Properties",
+											"value": "100%",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textDirection",
+											"grouping": "Properties",
+											"value": "Inherit",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "textAlign",
+											"grouping": "Properties",
+											"value": "Center",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "text",
+											"grouping": "Properties",
+											"value": "Very Poor",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "design",
+											"grouping": "Properties",
+											"value": "Standard",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "displayOnly",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "wrapping",
+											"grouping": "Properties",
+											"value": "false",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								}
+							]
+						},
+						{
+							"fieldNo": "b95e421c-0b00-4e67-b20b-c55c37453459",
+							"fieldName": "textareaLabel",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.Label",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "textDirection",
+									"grouping": "Properties",
+									"value": "Inherit",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "textAlign",
+									"grouping": "Properties",
+									"value": "Begin",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Share your thoughts:",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "design",
+									"grouping": "Properties",
+									"value": "Bold",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "displayOnly",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "wrapping",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "48892bad-d6a4-4283-ed0d-91c6f3514d63",
+							"fieldName": "oTextAreaFeedback",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.TextArea",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "wrapping",
+									"grouping": "Properties",
+									"value": "None",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "width",
+									"grouping": "Properties",
+									"value": "100%",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "valueState",
+									"grouping": "Properties",
+									"value": "None",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "textAlign",
+									"grouping": "Properties",
+									"value": "Initial",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "rows",
+									"grouping": "Properties",
+									"value": "10",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "placeholder",
+									"grouping": "Properties",
+									"value": "Describe what you like or what needs to be improved.",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "maxLength",
+									"grouping": "Properties",
+									"value": "2000",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "required",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "showExceededText",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "valueLiveUpdate",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "ea375953-dc70-4837-9844-b69e44c1d947",
+							"fieldName": "oCheckBoxFeedb",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.CheckBox",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "textDirection",
+									"grouping": "Properties",
+									"value": "Inherit",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Feedback is related to the current page",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "selected",
+									"grouping": "Properties",
+									"value": "true",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "useEntireWidth",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "displayOnly",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "wrapping",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "partiallySelected",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "2e3812bc-a86c-42b1-c72e-fe9d6d99d601",
+							"fieldName": "oMessageStrip",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.MessageStrip",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": " Your feedback is anonymous, we do not collect any personal data.",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "styleClassMargin",
+									"grouping": "Properties",
+									"value": "sapUiTinyMarginTopBottom",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "showIcon",
+									"grouping": "Properties",
+									"value": "true",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "showCloseButton",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "enableFormattedText",
+									"grouping": "Properties",
+									"value": "true",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "eb68d374-da56-44b8-c466-be66bb42e900",
+							"fieldName": "oFormattedText",
+							"fieldParent": "affcbe79-aa6d-45f2-a8ec-0c3006853b14",
+							"fieldType": "sap.m.FormattedText",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "htmlText",
+									"grouping": "Properties",
+									"value": "Note: If you want to report a bug, open an incident. This way we will be able to get back to you if we have follow-up questions.",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						}
+					]
+				},
+				{
+					"fieldNo": "ecdcb23c-c08e-42a5-b925-e12f93710aa2",
+					"fieldName": "oOverflowToolbar1",
+					"fieldParent": "bf1e2ab2-7b93-4311-ae63-477eb7c8450e",
+					"fieldType": "sap.m.OverflowToolbar",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "styleClassMargin",
+							"grouping": "Properties",
+							"value": "sapUiMediumMarginEnd",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "design",
+							"grouping": "Properties",
+							"value": "Auto",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "position",
+							"grouping": "Parent",
+							"value": "InfoToolbar",
+							"script": "",
+							"translation": []
+						}
+					],
+					"data": []
+				},
+				{
+					"fieldNo": "479a19e5-5542-4387-c595-4035325094c1",
+					"fieldName": "oHBox",
+					"fieldParent": "bf1e2ab2-7b93-4311-ae63-477eb7c8450e",
+					"fieldType": "sap.m.HBox",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "width",
+							"grouping": "Properties",
+							"value": "100%",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "justifyContent",
+							"grouping": "Properties",
+							"value": "End",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "fitContainer",
+							"grouping": "Properties",
+							"value": "true",
+							"script": "",
+							"translation": []
+						}
+					],
+					"data": [
+						{
+							"fieldNo": "af19cf7c-954b-44a2-a81a-eea745ec585d",
+							"fieldName": "oToolbarSpacer2",
+							"fieldParent": "479a19e5-5542-4387-c595-4035325094c1",
+							"fieldType": "sap.m.ToolbarSpacer",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "width",
+									"grouping": "Properties",
+									"value": "100%",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "3af82cfb-eb28-490c-9241-6338ab073995",
+							"fieldName": "btnSaveFeedback",
+							"fieldParent": "479a19e5-5542-4387-c595-4035325094c1",
+							"fieldType": "sap.m.Button",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "type",
+									"grouping": "Properties",
+									"value": "Emphasized",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Send",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "press",
+									"grouping": "Events",
+									"value": "Anonymous Function",
+									"script": [
+										"==OBJECT STRING==",
+										"if (sap.ui.getCore().byId(\"toggleBtnVGood\").getPressed() === true ||",
+										"    sap.ui.getCore().byId(\"toggleBtnGood\").getPressed() === true ||",
+										"    sap.ui.getCore().byId(\"toggleBtnNeutral\").getPressed() === true ||",
+										"    sap.ui.getCore().byId(\"toggleBtnBad\").getPressed() === true ||",
+										"    sap.ui.getCore().byId(\"toggleBtnVBad\").getPressed() === true) {",
+										"    sap.m.MessageToast.show(\"Feedback sent.\");",
+										"    oDiaFeedback.close();",
+										"} else {",
+										"    sap.m.MessageToast.show(\"Please vote before saving.\");",
+										"}",
+										"",
+										""
+									],
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "0295b5dd-3724-47bd-81c2-ef6200f8f938",
+							"fieldName": "btnCancel",
+							"fieldParent": "479a19e5-5542-4387-c595-4035325094c1",
+							"fieldType": "sap.m.Button",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "type",
+									"grouping": "Properties",
+									"value": "Default",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Cancel",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "press",
+									"grouping": "Events",
+									"value": "oDiaFeedback.close();",
+									"script": "oDiaFeedback.close();",
+									"translation": []
+								}
+							],
+							"data": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"fieldNo": 99999,
+			"data": []
+		},
+		{
+			"fieldNo": 99998,
+			"data": []
+		}
+	],
+	"ver": "22.7.26.1245",
+	"application": "neptbb_feedback",
+	"title": "Feedback Dialog",
+	"description": "UTIL",
+	"enableFileStorage": false,
+	"enableManifest": false,
+	"enableStylesheet": false,
+	"enableObfuscate": false,
+	"onlyRunLaunchpad": false,
+	"disabled": false,
+	"loadLaunchpadCode": null,
+	"loadApplicationCode": null,
+	"appType": "C",
+	"ui5_m": true,
+	"ui5_f": false,
+	"ui5_table": false,
+	"ui5_tnt": false,
+	"ui5_uxap": false,
+	"ui5_chart": false,
+	"ui5_theme": "sap_fiori_3",
+	"ui5_version": "1.71CDN",
+	"ui5_language": null,
+	"cus_theme": "",
+	"css": "",
+	"header": "",
+	"manifest": "",
+	"globalScript": "",
+	"deleted": false,
+	"libHighchart": false,
+	"libHighmap": false,
+	"publicAccess": false,
+	"ui5_bootstrap": false,
+	"apis": []
+}
